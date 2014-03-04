@@ -12,6 +12,6 @@ class BankAccount
   end
 
   def summary
-    #displayed information
+    puts ""
   end
 end

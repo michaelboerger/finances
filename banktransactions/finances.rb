@@ -13,16 +13,19 @@ CSV.foreach('bank_data.csv', headers: true) do |row|
 end
 
 binding.pry
-credits_and_debits.first.amount.to_i.debit?
+credits_and_debits.first.debit?
 # credits_and_debits #.each do |row|
 #   row['Amount'].debit?
+
 # end
 
 CSV.foreach('balances.csv', headers: true) do |row|
   @bank_accounts << BankAccount.new(row["Account"],row["Balance"])
 end
 
-
+# def formatter(amount)
+#   sprintf("$%.2f", amount)
+# end
 #puts bank_accounts
 
 #open CSVs
