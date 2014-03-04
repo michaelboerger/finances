@@ -1,10 +1,16 @@
 class BankTransaction
   def debit?(transaction)
-    #+
+    if @transaction > 0
+      return true
+    else
+      return false
   end
 
   def credit?(transaction)
-    #-
+    if @transaction < 0
+      return true
+    else
+      return false
   end
 
   def summary
@@ -12,19 +18,6 @@ class BankTransaction
   end
 end
 
-class BankAccount
-  def starting_balance(total)
-    #csv information
-  end
-
-  def ending_balance
-    #total changes to accounts
-  end
-
-  def summary
-    #displayed information
-  end
-end
 
 #open CSVs
 #put CSVs into hash
