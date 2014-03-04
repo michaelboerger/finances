@@ -1,4 +1,8 @@
 class BankAccount
+  def initialize(account,balance)
+    @account = account
+    @balance = balance
+  end
   def starting_balance(total)
     #csv information
   end

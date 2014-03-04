@@ -1,5 +1,6 @@
 class BankTransaction
-  def initialize(date, amount, description, account)
+
+   def initialize(date, amount, description, account)
     @date = date
     @amount = amount
     @description = description
@@ -11,20 +12,20 @@ class BankTransaction
   attr_accessor :description
   attr_accessor :account
 
-  # def debit?(transaction)
-  #   if @transaction < 0
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
+  def debit?
+    if amount < 0
+      true
+    else
+      false
+    end
+  end
 
-  # def credit?(transaction)
-  #   if @transaction > 0
-  #     return true
-  #   else
-  #     return false
-  # end
+  def credit?
+    if amount > 0
+      true
+    else
+      false
+  end
 
   # def summary
   #   #outputted info

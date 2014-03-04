@@ -9,15 +9,17 @@ bank_accounts = []
 #BankTransaction.debit?(credits_and_debits[1]['Amount'].to_f)
 
 CSV.foreach('bank_data.csv', headers: true) do |row|
-  credits_and_debits << BankTransaction.new(row['Date'],row['Amount'],row['Description'],row['Account'])
+  credits_and_debits << BankTransaction.new(row['Date'],row['Amount'].to_f,row['Description'],row['Account'])
 end
+
 binding.pry
-# credits_and_debits.each do |find|
-#   puts "#{find['Amount']}"
+credits_and_debits.first.amount.to_i.debit?
+# credits_and_debits #.each do |row|
+#   row['Amount'].debit?
 # end
 
 CSV.foreach('balances.csv', headers: true) do |row|
-  bank_accounts << row.to_hash
+  @bank_accounts << BankAccount.new(row["Account"],row["Balance"])
 end
 
 
