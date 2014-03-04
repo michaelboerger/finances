@@ -1,23 +1,25 @@
 require_relative 'banktransactions'
 require_relative 'bankaccount'
 require 'csv'
+require 'pry'
 credits_and_debits = []
 bank_accounts = []
 
 
-BankTransaction.debit?(credits_and_debits[1]['Amount'].to_f)
+#BankTransaction.debit?(credits_and_debits[1]['Amount'].to_f)
 
 CSV.foreach('bank_data.csv', headers: true) do |row|
-  credits_and_debits << row.to_hash
+  credits_and_debits << BankTransaction.new(row['Date'],row['Amount'],row['Description'],row['Account'])
 end
-
-credits_and_debits.each do |find|
-  puts "#{find['Amount']}"
-end
+binding.pry
+# credits_and_debits.each do |find|
+#   puts "#{find['Amount']}"
+# end
 
 CSV.foreach('balances.csv', headers: true) do |row|
   bank_accounts << row.to_hash
 end
+
 
 #puts bank_accounts
 

@@ -1,21 +1,34 @@
 class BankTransaction
-  def debit?(transaction)
-    if @transaction > 0
-      return true
-    else
-      return false
+  def initialize(date, amount, description, account)
+    @date = date
+    @amount = amount
+    @description = description
+    @account = account
   end
 
-  def credit?(transaction)
-    if @transaction < 0
-      return true
-    else
-      return false
-  end
+  attr_accessor :date
+  attr_accessor :amount
+  attr_accessor :description
+  attr_accessor :account
 
-  def summary
-    #outputted info
-  end
+  # def debit?(transaction)
+  #   if @transaction < 0
+  #     return true
+  #   else
+  #     return false
+  #   end
+  # end
+
+  # def credit?(transaction)
+  #   if @transaction > 0
+  #     return true
+  #   else
+  #     return false
+  # end
+
+  # def summary
+  #   #outputted info
+  # end
 end
 
 
