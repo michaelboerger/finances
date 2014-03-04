@@ -1,16 +1,16 @@
 class BankTransaction
 
+attr_reader :date
+attr_reader :amount
+attr_reader :description
+attr_reader :account
+
  def initialize(date, amount, description, account)
   @date = date
   @amount = amount
   @description = description
   @account = account
 end
-
-attr_accessor :date
-attr_accessor :amount
-attr_accessor :description
-attr_accessor :account
 
 def debit?
   if amount < 0
@@ -32,7 +32,7 @@ end
 
 def summary
   if debit? == true
-      puts "#{formatter(amount)}   DEBIT   #{date} - #{description} "#make the output include DEBIT
+      puts "#{amount.abs}   DEBIT   #{date} - #{description} "#make the output include DEBIT
     else
       puts "#{amount}   CREDIT  #{date} - #{description}"#make the output include CREDIT
     end

@@ -6,30 +6,37 @@ credits_and_debits = []
 bank_accounts = []
 
 
+
+
 #BankTransaction.debit?(credits_and_debits[1]['Amount'].to_f)
 
 CSV.foreach('bank_data.csv', headers: true) do |row|
   credits_and_debits << BankTransaction.new(row['Date'],row['Amount'].to_f,row['Description'],row['Account'])
 end
 
-binding.pry
-credits_and_debits.first.debit?
+
+# credits_and_debits.first.debit?
 # credits_and_debits #.each do |row|
 #   row['Amount'].debit?
 
 # end
 
 CSV.foreach('balances.csv', headers: true) do |row|
-  @bank_accounts << BankAccount.new(row["Account"],row["Balance"])
+  bank_accounts << BankAccount.new(row["Account"],row["Balance"])
 end
 
+def starting_loot
+  bank_accounts.each do |row|
+    puts "#{row["balance"]}   #{row["account"]}"
+  end
+end
+
+binding.pry
 # def formatter(amount)
 #   sprintf("$%.2f", amount)
 # end
 #puts bank_accounts
 
-#open CSVs
-#put CSVs into hash
 #loop hash through debit? and credit?
 #get and store summary from BankTransaction
 
